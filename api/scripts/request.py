@@ -1,6 +1,7 @@
 import requests
 
 url = "http://localhost:8000/predict"
+
 dados_nota = {
     "id_supplier": 7101.0,
     "iss_retention": True,
@@ -11,6 +12,8 @@ dados_nota = {
     "pis_tax_rate": 0.0,
     "opting_for_simples_nacional": True,
 }
+
+# Esperado "valid"
 
 response = requests.post(url, json=dados_nota)
 
