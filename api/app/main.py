@@ -1,22 +1,20 @@
-from fastapi import FastAPI, Request
-from fastapi.responses import FileResponse, HTMLResponse
-from fastapi.exceptions import RequestValidationError
-from starlette.responses import JSONResponse
+from fastapi import FastAPI, Depends
+from fastapi.responses import FileResponse, HTMLResponse, JSONResponse
 from app.predict import prever_nota
 from app.notafiscal import NotaFiscal
 import joblib
 import os
 
-# Carregar modelo treinado
-modelo = joblib.load("modelo/random_forest_model.pkl")
+# Caminhos do meme
+MEME_PATH = os.path.join("app", "img", "status200.jpg") 
 
 # Criação da API
 app = FastAPI()
 
-# Caminhos do meme
-MEME_PATH = os.path.join("app", "img", "status200.jpg") 
+# Função para carregar o modelo em cada requisição (evita concorrência)
+def get_model():
+    return joblib.load("modelo/random_forest_model.pkl")
 
-# Rota principal - Status 200
 @app.get("/", response_class=HTMLResponse)
 def verify():
     if os.path.exists(MEME_PATH):
@@ -38,6 +36,6 @@ def get_meme():
     return {"message": "Meme não encontrado!"}
 
 @app.post("/predict")
-def predict(nota: NotaFiscal):
+async def predict(nota: NotaFiscal, modelo=Depends(get_model)):
     resultado = prever_nota(nota, modelo)
     return {"classificacao": resultado}

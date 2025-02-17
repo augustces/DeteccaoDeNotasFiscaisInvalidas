@@ -7,7 +7,7 @@ dados_nota = {
     "iss_retention": True,
     "iss_tax_rate": 2.0,
     "csll_tax_rate": 10.0,
-    "ir_tax_rate": 0.0,
+    "ir_tax_rate": 188.0,
     "cofins_tax_rate": 0.0,
     "pis_tax_rate": 0.0,
     "opting_for_simples_nacional": True,
