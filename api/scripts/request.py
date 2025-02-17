@@ -6,7 +6,7 @@ dados_nota = {
     "id_supplier": 7101.0,
     "iss_retention": True,
     "iss_tax_rate": 2.0,
-    "csll_tax_rate": 0.0,
+    "csll_tax_rate": 10.0,
     "ir_tax_rate": 0.0,
     "cofins_tax_rate": 0.0,
     "pis_tax_rate": 0.0,
