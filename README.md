@@ -23,6 +23,7 @@ DeteccaoDeNotasFiscaisInvalidas/
 ├── api/                                        # Pasta que contém a aplicação da API e do Docker
 │   ├── app/                                    # Pasta que contém a aplicação da API 
 │   │   ├── main.py                             # Ponto de entrada da aplicação
+│   │   ├── meme.jpg                            # Imagem que representa que a api está funcionando
 │   │   ├── notafiscal.py                       # Modelo base de uma nota fiscal
 │   │   └── predict.py                          # Lógica de previsão
 │   ├── modelo/                                 # Pasta do modelo de Machine Learning

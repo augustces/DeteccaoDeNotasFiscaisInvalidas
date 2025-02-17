@@ -1,6 +1,7 @@
 fastapi
 uvicorn
 joblib
+starlette
 pandas
 pydantic
 scikit-learn
